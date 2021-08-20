@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Quiz</title>
+</head>
+
+<body>
+    <nav>
+        <a id="view-highscore" href="#">View Highscore</a>
+        <span id="time"></span>
+    </nav>
+    <main>
+        <div id="start-screen">
+            <h1>Coding Quiz Challenge</h1>
+            <p> Try to answer the following code-related questions within the time limit. Keep in mind that incorrect
+                answers will penalize your score/time by ten seconds!</p>
+        </div>
+
+        <div id="question-screen">
+            <h2 id="question"></h2>
+            <form id=options>
+                <input type="button" id="option1" name="option1" value="">
+                <input type="button" id="option2" name="option2" value="">
+                <input type="button" id="option3" name="option3" value="">
+                <input type="button" id="option4" name="option4" value="">
+            </form>
+        </div>
+
+        <div id="end-screen">
+            <h2>All done!</h2>
+            <p id=final-score></p>
+            <form>
+                <label for="initials">Enter initials: </label>
+                <input type="text" id="initials" name="initials">
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+
+        <div id="highscore-screen">
+            <h2>Highscore</h2>
+            <ol id="highscores">
+            </ol>
+            <form>
+                <input type="button" id="go-back" name="go-back" value="Go Back">
+                <input type="button" id="clear-highscore" name="clear-highscore" value="Clear Highscore">
+            </form>
+        </div>
+    </main>
+</body>
+
+</html>
