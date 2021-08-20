@@ -22,15 +22,50 @@ var option4El = document.querySelector("#option4");
 
 const questions = [
     {
-        question: "blah",
-        options: ["a", "s", "d", "f"],
-        correctAnswer: "a"
+        question: "What is ++ operator?",
+        options: ["Addition", "Increment", "Exponentiation", "Decrement"],
+        correctAnswer: "Increment"
     },
     {
-        question: "blah2",
-        options: ["a", "s", "d", "f"],
-        correctAnswer: "s"
-    }
+        question: "What is === operator?",
+        options: ["Equal to", "Assignment", "Equal value and equal type", "Ternary"],
+        correctAnswer: "Equal value and equal type"
+    },
+    {
+        question: "What is ** operator?",
+        options: ["Exponentiation", "Multiplication", "Double Multiplication", "Modulus"],
+        correctAnswer: "Exponentiation"
+    },
+    {
+        question: "What is -- operator?",
+        options: ["Exponentiation", "Double Subtraction", "Subtraction", "Decrement"],
+        correctAnswer: "Decrement"
+    },
+    {
+        question: "What is ? operator?",
+        options: ["Question", "Ternary", "Not equal", "Modulus"],
+        correctAnswer: "Ternary"
+    },
+    {
+        question: "What is == operator?",
+        options: ["Equal to", "Equal value and equal type", "Assignment", "Concatenation"],
+        correctAnswer: "Equal to"
+    },
+    {
+        question: "What is % operator?",
+        options: ["Division", "Not equal", "Modulus", "Concatenation"],
+        correctAnswer: "Modulus"
+    },
+    {
+        question: "const cars = [\"Toytota\", \"Ford\", \"Volkswagen\", \"BMW\"] <br> What is cars[1]?",
+        options: ["Toyota", "Ford", "Volkwagen", "BMW"],
+        correctAnswer: "Ford"
+    },
+    {
+        question: "const cars = [\"Toytota\", \"Ford\", \"Volkswagen\", \"BMW\"] <br> What is cars[4]?",
+        options: ["Toyota", "Ford", "undefined", "BMW"],
+        correctAnswer: "undefined"
+    },
 ]
 
 var questionNumber = 0;
@@ -95,7 +130,12 @@ option4El.addEventListener("click", function (event) {
 });
 
 function startQuiz() {
+    questionNumber = 0;
+    timeLeft = 75;
+    score = 0;
+    
     showQuestion();
+
     var timeInterval = setInterval(function () {
         timeLeft--;
         timeEl.textContent = timeLeft;
