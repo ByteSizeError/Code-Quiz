@@ -1,0 +1,9 @@
+#view-highscore {
+    text-decoration: none;
+    color: dodgerblue;
+}
+
+input[type="button"], input[type="submit"] {
+    background-color: dodgerblue;
+    color: white;
+}
