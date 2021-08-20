@@ -1,3 +1,19 @@
+#start-screen {
+    display: block;
+}
+
+#question-screen {
+    display: none;
+}
+
+#end-screen {
+    display: none;
+}
+
+#highscore-screen {
+    display: none;
+}
+
 #view-highscore {
     text-decoration: none;
     color: dodgerblue;
@@ -7,3 +23,4 @@ input[type="button"], input[type="submit"] {
     background-color: dodgerblue;
     color: white;
 }
+
