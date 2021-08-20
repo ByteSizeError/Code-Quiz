@@ -10,7 +10,9 @@ var endScreen = document.querySelector("#end-screen");
 var highscoreScreen = document.querySelector("#highscore-screen");
 
 var timeEl = document.querySelector("#time");
-var timeLeft = 75;
+var timeLeft = 2; //75
+
+var initials = document.querySelector("#initials");
 
 function countdown() {
     var timeInterval = setInterval(function() {
@@ -31,6 +33,17 @@ startButton.addEventListener("click", function(event) {
     startScreen.style.display = "none";
     questionScren.style.display = "block";
     countdown();
+});
+
+submitButton.addEventListener("click", function(event) {
+    event.preventDefault();
+    
+    var userScore = {
+        initials: initials.value,
+        score: 0
+    }
+
+    localStorage.setItem("userScore", JSON.stringify(userScore));
 });
 
 goBackButton.addEventListener("click", function(event) {
