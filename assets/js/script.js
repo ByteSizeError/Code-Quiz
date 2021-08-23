@@ -11,9 +11,9 @@ var highscoreScreen = document.querySelector("#highscore-screen");
 
 var timeEl = document.querySelector("#time");
 var timeLeft = 75; 
+var timeInterval; // global so we can stop it when we click view highscore in a quiz
 
 var initials = document.querySelector("#initials");
-
 var questionEl = document.querySelector("#question");
 var option1El = document.querySelector("#option1");
 var option2El = document.querySelector("#option2");
@@ -77,7 +77,7 @@ function showHighscore() {
     while (highscoresEl.firstChild) {
         highscoresEl.removeChild(highscoresEl.firstChild);
     }
-    
+
     // gets the userScores from the localStorage
     var scores = JSON.parse(localStorage.getItem("userScores"));
 
@@ -146,9 +146,9 @@ function startQuiz() {
     
     showQuestion();
 
-    var timeInterval = setInterval(function () {
+    timeInterval = setInterval(function () {
         timeLeft--;
-        timeEl.textContent = timeLeft;
+        timeEl.textContent = "Time: " + timeLeft;
 
         if (timeLeft <= 0 || questionNumber >= questions.length) {
             clearInterval(timeInterval);
@@ -197,7 +197,8 @@ viewHighscore.addEventListener("click", function (event) {
     questionScren.style.display = "none";
     endScreen.style.display = "none";
     highscoreScreen.style.display = "block";
-
+    clearInterval(timeInterval);
+    timeEl.textContent = "";
     showHighscore();
 });
 

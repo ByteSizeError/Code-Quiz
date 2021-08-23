@@ -1,3 +1,6 @@
+* {
+    font-family: 'Courier New', Courier, monospace;
+}
 #start-screen {
     display: block;
 }
@@ -19,7 +22,7 @@
     color: dodgerblue;
 }
 
-input[type="button"], input[type="submit"] {
+input[type="button"], input[type="submit"], ol {
     background-color: dodgerblue;
     color: white;
 }
