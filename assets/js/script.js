@@ -10,7 +10,7 @@ var endScreen = document.querySelector("#end-screen");
 var highscoreScreen = document.querySelector("#highscore-screen");
 
 var timeEl = document.querySelector("#time");
-var timeLeft = 75; //75
+var timeLeft = 75; 
 
 var initials = document.querySelector("#initials");
 
@@ -19,6 +19,7 @@ var option1El = document.querySelector("#option1");
 var option2El = document.querySelector("#option2");
 var option3El = document.querySelector("#option3");
 var option4El = document.querySelector("#option4");
+var highscoresEl = document.querySelector("#highscores");
 
 const questions = [
     {
@@ -55,17 +56,7 @@ const questions = [
         question: "What is % operator?",
         options: ["Division", "Not equal", "Modulus", "Concatenation"],
         correctAnswer: "Modulus"
-    },
-    {
-        question: "const cars = [\"Toytota\", \"Ford\", \"Volkswagen\", \"BMW\"] <br> What is cars[1]?",
-        options: ["Toyota", "Ford", "Volkwagen", "BMW"],
-        correctAnswer: "Ford"
-    },
-    {
-        question: "const cars = [\"Toytota\", \"Ford\", \"Volkswagen\", \"BMW\"] <br> What is cars[4]?",
-        options: ["Toyota", "Ford", "undefined", "BMW"],
-        correctAnswer: "undefined"
-    },
+    }
 ]
 
 var questionNumber = 0;
@@ -81,10 +72,32 @@ function showQuestion() {
     }
 }
 
+function showHighscore() {
+    // removes all scores before we load in the ones stored in localStorage
+    while (highscoresEl.firstChild) {
+        highscoresEl.removeChild(highscoresEl.firstChild);
+    }
+    
+    // gets the userScores from the localStorage
+    var scores = JSON.parse(localStorage.getItem("userScores"));
+
+    // sort the scores before we add them as children 
+    scores.sort((a, b) => {
+        return b.score - a.score;
+    })
+    console.log(scores);
+
+    // loops through all the scores and addes them as children under an ordered list
+    for (let i = 0; i < scores.length; i++) {
+        var liEl = document.createElement("li");
+        liEl.textContent = scores[i].initials + " - " + scores[i].score;
+        highscoresEl.appendChild(liEl);
+    }
+}
+
 option1El.addEventListener("click", function (event) {
     event.preventDefault();
     if (option1El.value == questions[questionNumber].correctAnswer) {
-        score++;
         questionNumber++;
         showQuestion();
     }
@@ -96,7 +109,6 @@ option1El.addEventListener("click", function (event) {
 option2El.addEventListener("click", function (event) {
     event.preventDefault();
     if (option2El.value === questions[questionNumber].correctAnswer) {
-        score++;
         questionNumber++;
         showQuestion();
     }
@@ -108,7 +120,6 @@ option2El.addEventListener("click", function (event) {
 option3El.addEventListener("click", function (event) {
     event.preventDefault();
     if (option3El.value === questions[questionNumber].correctAnswer) {
-        score++;
         questionNumber++;
         showQuestion();
     }
@@ -120,7 +131,6 @@ option3El.addEventListener("click", function (event) {
 option4El.addEventListener("click", function (event) {
     event.preventDefault();
     if (option4El.value === questions[questionNumber].correctAnswer) {
-        score++;
         questionNumber++;
         showQuestion();
     }
@@ -145,6 +155,7 @@ function startQuiz() {
             timeEl.textContent = "";
             questionScren.style.display = "none";
             endScreen.style.display = "block";
+            score = timeLeft + 1;
         }
     }, 1000);
 }
@@ -161,10 +172,17 @@ submitButton.addEventListener("click", function (event) {
 
     var userScore = {
         initials: initials.value,
-        score: 0
+        score: score
     }
 
-    localStorage.setItem("userScore", JSON.stringify(userScore));
+    var userScores = JSON.parse(localStorage.getItem("userScores")) || [];
+    userScores.push(userScore);
+
+    localStorage.setItem("userScores", JSON.stringify(userScores));
+    endScreen.style.display = "none";
+    highscoreScreen.style.display = "block";
+
+    showHighscore();
 });
 
 goBackButton.addEventListener("click", function (event) {
@@ -179,6 +197,8 @@ viewHighscore.addEventListener("click", function (event) {
     questionScren.style.display = "none";
     endScreen.style.display = "none";
     highscoreScreen.style.display = "block";
+
+    showHighscore();
 });
 
 
