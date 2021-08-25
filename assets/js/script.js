@@ -154,7 +154,7 @@ function startQuiz() {
             clearInterval(timeInterval);
             timeEl.textContent = "";
             questionScren.style.display = "none";
-            endScreen.style.display = "block";
+            endScreen.style.display = "flex";
             score = timeLeft + 1;
         }
     }, 1000);
@@ -163,7 +163,7 @@ function startQuiz() {
 startButton.addEventListener("click", function (event) {
     event.preventDefault();
     startScreen.style.display = "none";
-    questionScren.style.display = "block";
+    questionScren.style.display = "flex";
     startQuiz();
 });
 
@@ -180,7 +180,7 @@ submitButton.addEventListener("click", function (event) {
 
     localStorage.setItem("userScores", JSON.stringify(userScores));
     endScreen.style.display = "none";
-    highscoreScreen.style.display = "block";
+    highscoreScreen.style.display = "flex";
 
     showHighscore();
 });
@@ -188,7 +188,8 @@ submitButton.addEventListener("click", function (event) {
 goBackButton.addEventListener("click", function (event) {
     event.preventDefault();
     highscoreScreen.style.display = "none";
-    startScreen.style.display = "block";
+    startScreen.style.display = "flex";
+    timeEl.textContent = "Time: 75"
 })
 
 viewHighscore.addEventListener("click", function (event) {
@@ -196,11 +197,16 @@ viewHighscore.addEventListener("click", function (event) {
     startScreen.style.display = "none";
     questionScren.style.display = "none";
     endScreen.style.display = "none";
-    highscoreScreen.style.display = "block";
+    highscoreScreen.style.display = "flex";
     clearInterval(timeInterval);
     timeEl.textContent = "";
     showHighscore();
 });
 
-
+function startUp() {
+    startScreen.style.display = "flex";
+    questionScren.style.display = "none";
+    endScreen.style.display = "none";
+    highscoreScreen.style.display = "none";
+};
 

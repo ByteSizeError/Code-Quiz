@@ -1,20 +1,26 @@
 * {
     font-family: 'Courier New', Courier, monospace;
 }
-#start-screen {
-    display: block;
+
+nav {
+    display: flex;
+    justify-content: space-between;
 }
 
-#question-screen {
-    display: none;
+h2, #intro {
+    width: 50%;
 }
 
-#end-screen {
-    display: none;
+#start-screen, #question-screen, #end-screen, #highscore-screen {
+    flex-direction: column;
+    align-items: center;
 }
 
-#highscore-screen {
-    display: none;
+#options, #highscores {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 #view-highscore {
@@ -25,5 +31,10 @@
 input[type="button"], input[type="submit"], ol {
     background-color: dodgerblue;
     color: white;
+    border-radius: 5px;
+    margin: 5px;
 }
 
+li {
+    margin: 2px;
+}
