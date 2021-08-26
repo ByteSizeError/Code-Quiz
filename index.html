@@ -9,15 +9,15 @@
     <title>Code Quiz</title>
 </head>
 
-<body>
+<body onload="startUp()">
     <nav>
         <a id="view-highscore" href="#">View Highscore</a>
-        <span id="time">75</span>
+        <span id="time">Time: 75</span>
     </nav>
     <main>
         <div id="start-screen">
             <h1>Coding Quiz Challenge</h1>
-            <p> Try to answer the following code-related questions within the time limit. Keep in mind that incorrect
+            <p id="intro">Try to answer the following code-related questions within the time limit. Keep in mind that incorrect
                 answers will penalize your score/time by ten seconds!</p>
             <form>
                 <input type="submit" id="start" value="Start Quiz">

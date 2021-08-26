@@ -1,17 +1,26 @@
-#start-screen {
-    display: block;
+* {
+    font-family: 'Courier New', Courier, monospace;
 }
 
-#question-screen {
-    display: none;
+nav {
+    display: flex;
+    justify-content: space-between;
 }
 
-#end-screen {
-    display: none;
+h2, #intro {
+    width: 50%;
 }
 
-#highscore-screen {
-    display: none;
+#start-screen, #question-screen, #end-screen, #highscore-screen {
+    flex-direction: column;
+    align-items: center;
+}
+
+#options, #highscores {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 #view-highscore {
@@ -19,8 +28,13 @@
     color: dodgerblue;
 }
 
-input[type="button"], input[type="submit"] {
+input[type="button"], input[type="submit"], ol {
     background-color: dodgerblue;
     color: white;
+    border-radius: 5px;
+    margin: 5px;
 }
 
+li {
+    margin: 2px;
+}
