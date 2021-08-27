@@ -19,6 +19,8 @@ var option1El = document.querySelector("#option1");
 var option2El = document.querySelector("#option2");
 var option3El = document.querySelector("#option3");
 var option4El = document.querySelector("#option4");
+var hrEl = document.querySelector("#hr-line");
+var feedbackEl = document.querySelector("#feedback");
 var highscoresEl = document.querySelector("#highscores");
 
 const questions = [
@@ -95,47 +97,63 @@ function showHighscore() {
     }
 }
 
+function clearResponse() {
+    feedbackEl.textContent = "";
+    hrEl.style.visibility = "hidden";
+}
+
+function correctResponse() {
+    hrEl.style.visibility = "visible";
+    feedbackEl.textContent = "correct";
+    setTimeout(clearResponse, 500);
+    questionNumber++;
+    showQuestion();
+}
+
+function wrongResponse() {
+    timeLeft = timeLeft - 10;
+    hrEl.style.visibility = "visible";
+    feedbackEl.textContent = "wrong";
+    setTimeout(clearResponse, 500);
+}
+
 option1El.addEventListener("click", function (event) {
     event.preventDefault();
     if (option1El.value == questions[questionNumber].correctAnswer) {
-        questionNumber++;
-        showQuestion();
+        correctResponse();
     }
     else {
-        timeLeft = timeLeft - 10;
+        wrongResponse();
     }
 });
 
 option2El.addEventListener("click", function (event) {
     event.preventDefault();
     if (option2El.value === questions[questionNumber].correctAnswer) {
-        questionNumber++;
-        showQuestion();
+        correctResponse();
     }
     else {
-        timeLeft = timeLeft - 10;
+        wrongResponse();
     }
 });
 
 option3El.addEventListener("click", function (event) {
     event.preventDefault();
     if (option3El.value === questions[questionNumber].correctAnswer) {
-        questionNumber++;
-        showQuestion();
+        correctResponse();
     }
     else {
-        timeLeft = timeLeft - 10;
+        wrongResponse();
     }
 });
 
 option4El.addEventListener("click", function (event) {
     event.preventDefault();
     if (option4El.value === questions[questionNumber].correctAnswer) {
-        questionNumber++;
-        showQuestion();
+        correctResponse();
     }
     else {
-        timeLeft = timeLeft - 10;
+        wrongResponse();
     }
 });
 
