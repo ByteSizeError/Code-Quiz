@@ -17,7 +17,8 @@
     <main>
         <div id="start-screen">
             <h1>Coding Quiz Challenge</h1>
-            <p id="intro">Try to answer the following code-related questions within the time limit. Keep in mind that incorrect
+            <p id="intro">Try to answer the following code-related questions within the time limit. Keep in mind that
+                incorrect
                 answers will penalize your score/time by ten seconds!</p>
             <form>
                 <input type="submit" id="start" value="Start Quiz">
@@ -32,6 +33,8 @@
                 <input type="button" id="option3" name="option3" value="">
                 <input type="button" id="option4" name="option4" value="">
             </form>
+            <hr id="hr-line">
+            <p id=feedback></p>
         </div>
 
         <div id="end-screen">
@@ -46,8 +49,16 @@
 
         <div id="highscore-screen">
             <h2>Highscore</h2>
-            <ol id="highscores">
-            </ol>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Initials</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody id=highscore-table></tbody>
+            </table>
             <form>
                 <input type="button" id="go-back" name="go-back" value="Go Back">
                 <input type="button" id="clear-highscore" name="clear-highscore" value="Clear Highscore">
