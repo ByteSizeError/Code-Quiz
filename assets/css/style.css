@@ -2,33 +2,40 @@
     font-family: 'Courier New', Courier, monospace;
 }
 
+/* using space between we can get the view highscore button and time to be on the edges */
 nav {
     display: flex;
     justify-content: space-between;
 }
 
+/* centers all text */
 h1, h2, #intro {
     text-align: center;
     width: 50%;
 }
 
+/* all screens are flex with direction column and items centered */
 #start-screen, #question-screen, #end-screen, #highscore-screen {
     flex-direction: column;
     align-items: center;
+    display: none;
 }
 
-#options, #highscores {
+/* keeps the options close to the center but aligned with left of question */
+#options {
     width: 50%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
+/* button is blue with no underline */
 #view-highscore {
     text-decoration: none;
     color: dodgerblue;
 }
 
+/* input box is styled to look like the submit button */
 input[type="text"] {
     height: 36px;
     width: 80px;
@@ -38,6 +45,7 @@ input[type="text"] {
     border-radius: 8px;
 }
 
+/* buttons are rounded and are blue with white text */
 input[type="button"], input[type="submit"] {
     background-color: dodgerblue;
     color: white;
@@ -50,12 +58,14 @@ input[type="button"], input[type="submit"] {
     white-space: normal; 
 }
 
+/* when hovering on buttons the background becomes white and text is blue */
 input[type="button"]:hover, input[type="submit"]:hover {
     background-color: white;
     color: dodgerblue;
     cursor: pointer;
 }
 
+/* table is kept to the center and is only 50% of the div */
 table {
     width: 50%;
     border-spacing: 0px;
@@ -63,10 +73,12 @@ table {
     margin-bottom: 30px;
 }
 
+/* every other row is light blue for readablility */
 tbody tr:nth-child(odd) {
     background-color: rgba(30, 143, 255, 0.25);
 }
 
+/* hr is 50% of the div */
 #hr-line {
     width: 50%;
 }
